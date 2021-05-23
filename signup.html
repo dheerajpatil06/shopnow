@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content%}
+<div class="container">
+    <div class="p-4 m-4">
+        <div class="col-lg-5 mx-auto border rounded pt-4">
+            <h3 class="alert alert-light border rounded">Create An Account</h3>
+            <form action="/signup" method="POST">
+                {% csrf_token %}
+                {% if error %}
+                <div class="alert alert-danger" role="alert">
+                  {{error}}
+                </div>
+                {%endif%}
+                 <!--first name-->
+            <div class="form-group">
+                <label for="">First Name</label>
+                <input type="text" class="form-control form-control-sm" name="firstname" id="" value="{{values.first_name}}" >
+  
+              </div>
+               <!--last name-->
+            <div class="form-group">
+                <label for="">Last Name</label>
+                <input type="text" class="form-control form-control-sm" name="lastname" id=""  value="{{values.last_name}}">
+  
+              </div>
+               <!--mobile-->
+            <div class="form-group">
+                <label for="">Mobile</label>
+                <input type="integer" class="form-control form-control-sm" name="mobile" id="" value="{{values.mobile}}">
+  
+              </div>
+                <!--email-->
+            <div class="form-group">
+              <label for="">Email</label>
+              <input type="email" value="{{values.email}}"  class="form-control form-control-sm" name="email" id=""  aria-describedby="emailHelpId" placeholder="@abc.com">
+
+            </div>
+             <!--password-->
+             <div class="form-group">
+                <label for="">Password</label>
+                <input type="password"  class="form-control form-control-sm" name="password" id="" aria-describedby="emailHelpId" placeholder="******">
+            </div>
+
+                <div class="form group" >
+                    <input class=" btn btn-sm btn-info " type="submit" value="Create An Account">
+                </div>
+        </form>
+        </div>
+
+    </div>
+</div>
+{% endblock%}
